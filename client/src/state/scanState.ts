@@ -15,12 +15,9 @@ export const useScanStore = create<IScanStore>((set) => ({
     setScan: (scan: boolean) => set({ scan }),
     checkCSV: async (csv: string) => {
         try {
-            console.log(csv)
             const [nameStr, emailStr] = csv.split(',');
             const name=nameStr.trim();
             const email=emailStr.trim();
-            console.log(name)
-            console.log(email)
             const response = await axios.post(`${API_URL}/check_attendance`, {
                 name,
                 email
